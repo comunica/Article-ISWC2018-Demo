@@ -90,7 +90,23 @@ Comunica will take care of the rest.</p>
   <section id="demo">
     <h2>Demonstration overview</h2>
 
-    <p class="todo">Brief overview of the demo</p>
+    <p>In this demonstation, we offer the possility for executing SPARQL queries
+over a federation of heterogeneous interfaces.
+This demonstration can be used directly within the browser,
+and is available on the <a href="http://comunica.linkeddatafragments.org/">Comunica website</a>.</p>
+
+    <p>This demonstration is an adaption of the Triple Pattern Fragments Web client <span class="references">[<a href="#ref-8">8</a>]</span>,
+with the main difference that instead of using the Triple Pattern Fragments engine for querying,
+it uses the Comunica engine.
+The implementation of this Web client is available on <a href="https://github.com/comunica/jQuery-Widget.js" class="mandatory" data-link-text="https:/​/​github.com/​comunica/​jQuery-​Widget.js">GitHub</a>,
+and is available under the open MIT license so that it can be reused for different use cases.</p>
+
+    <p>We provide a collection of example queries with a predefined set of sources,
+where some queries federate over different heterogeneous sources.
+<a href="#screenshot">Fig. 1</a> shows an example of an example query that federates
+over a Triple Pattern Fragments interface and a SPARQL endpoint.
+Additionally, users can also write custom queries,
+and add more datasources by their URL.</p>
 
     <figure id="screenshot">
 <img src="img/screenshot.png" alt="[Comunica Web Client Screenshot]" />
@@ -99,6 +115,12 @@ Comunica will take care of the rest.</p>
 DBpedia Triple Pattern Fragments interface and a FOAF profile.</p>
       </figcaption>
 </figure>
+
+    <p>At the time of writing, SPARQL endpoints, Triple Pattern Fragments interfaces and raw RDF files can be queried.
+Internally, Comunica will identify the source type through a set of heuristics.
+SPARQL endpoints are tested using a simple <code>ASK</code> query through the <a property="schema:citation http://purl.org/spar/cito/cites" href="https://www.w3.org/TR/2013/REC-sparql11-protocol-20130321/">SPARQL protocol</a> <span class="references">[<a href="#ref-1">1</a>]</span>.
+Triple Pattern Fragments interfaces are tested by checking if the required set of hypermedia controls are available.
+Finally, RDF files are tested with the lowest priority by checking their content type.</p>
 
   </section>
 
