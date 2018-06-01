@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Querying heterogeneous interfaces simultaneously using Comunica</title>
+  <link rel="stylesheet" media="screen" href="styles/screen.css" />
+  <link rel="stylesheet" media="print"  href="styles/print.css" />
+</head>
+<body prefix="cc: https://creativecommons.org/ns# rdfs: http://www.w3.org/2000/01/rdf-schema#">
+  <header>
+  <h1 id="querying-heterogeneous-interfaces-simultaneously-using-comunica">Querying heterogeneous interfaces simultaneously using Comunica</h1>
+
+  <ul id="authors">
+    <li><a href="#" typeof="http://xmlns.com/foaf/0.1/Person" resource="https://data.verborgh.org/people/joachim_van_herwegen">Joachim Van Herwegen</a></li>
+    <li><a href="http://www.rubensworks.net/" typeof="http://xmlns.com/foaf/0.1/Person" resource="http://www.rubensworks.net/#me">Ruben Taelman</a></li>
+    <li><a href="#" typeof="http://xmlns.com/foaf/0.1/Person" resource="https://data.verborgh.org/people/miel_vander_sande">Miel Vander Sande</a></li>
+    <li><a href="https://ruben.verborgh.org/" typeof="http://xmlns.com/foaf/0.1/Person" resource="https://ruben.verborgh.org/profile/#me">Ruben Verborgh</a></li>
+  </ul>
+
+  <ul id="affiliations">
+    <li id="idlab">IDLab,
+          Department of Electronics and Information Systems,
+          Ghent University – imec</li>
+  </ul>
+
+  <section id="abstract">
+    <h2>Abstract</h2>
+    <!-- Context      -->
+    <p>Linked Data sources can appear in a variety of forms,
+going from SPARQL endpoints to Triple Pattern Fragments and data dumps.
+<!-- Need         -->
+This creates an added layer of complexity when querying or combining results from those sources.
+<!-- Task         -->
+To ease this problem, we created a modular client, Comunica,
+that has modules for solving SPARQL queries and supports heterogeneous interfaces.
+Other modules for other query or source types can easily be added.
+<!-- Object       -->
+In this paper we showcase the web client that uses Comunica to solve federated SPARQL queries
+and can automatically detect the types of the sources covered.</p>
+
+  </section>
+
+</header>
+
+<main>
+  <!-- Add sections by specifying their file name, excluding the '.md' suffix. -->
+  <section id="introduction">
+    <h2>Introduction</h2>
+
+    <p class="todo">Add sources</p>
+
+    <p>There are a multitude of ways we can access Linked Data these days.
+Some of the more commonly used ones are SPARQL endpoints, 
+Triple Pattern Fragments and its variations, subject pages and data dumps.
+These all have their own methods on how they can be accessed and help solve SPARQL queries.
+While a SPARQL endpoint can solve queries on its own,
+data dumps will require client-side processing to produce more granular results.
+This is measured in client cost on the Linked Data Fragments axis.</p>
+
+    <p>Having all these heterogeneous interfaces greatly complicates federated queries.
+While resolving such a query,
+different actions have to be taken depending on the source that is being accessed.
+Different solutions might also be required depending on the combination of sources.
+In case of a single SPARQL endpoint, a single query will suffice.
+On the other hand, if all sources are data dumps they all have to be downloaded and parsed client-side.
+But what if some sources are SPARQL endpoints and some are data dumps?</p>
+
+    <p>To this end we created a modular Linked Data client called Comunica.
+In our ISWC2018 paper we describe how this client can easily be extended
+to support a variety of sources and algorithms.
+This allows everyone to quickly set up a federated SPARQL client
+without having to worry about the sources,
+and to easily extend it should more types be required.</p>
+
+    <p>In this paper we describe how we will showcase the heterogeneous features of Comunica.
+We created a web client capable of solving federated SPARQL queries over heteregeneous interfaces.
+Additionally, this client will automatically identify the type of all sources.
+This way the end-user only has to provide the URLs and query;
+Comunica will take care of the rest.</p>
+  </section>
+
+  <section>
+
+  </section>
+
+  <section>
+
+  </section>
+
+  <section>
+
+  </section>
+
+</main>
+
+<footer></footer>
+
+</body about="" prefix="rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns# rdfs: http://www.w3.org/2000/01/rdf-schema# owl: http://www.w3.org/2002/07/owl# xsd: http://www.w3.org/2001/XMLSchema# dcterms: http://purl.org/dc/terms/ dctypes: http://purl.org/dc/dcmitype/ foaf: http://xmlns.com/foaf/0.1/ v: http://www.w3.org/2006/vcard/ns# pimspace: http://www.w3.org/ns/pim/space# cc: https://creativecommons.org/ns# skos: http://www.w3.org/2004/02/skos/core# prov: http://www.w3.org/ns/prov# qb: http://purl.org/linked-data/cube# schema: http://schema.org/ void: http://rdfs.org/ns/void# rsa: http://www.w3.org/ns/auth/rsa# cert: http://www.w3.org/ns/auth/cert# cal: http://www.w3.org/2002/12/cal/ical# wgs: http://www.w3.org/2003/01/geo/wgs84_pos# org: http://www.w3.org/ns/org# biblio: http://purl.org/net/biblio# bibo: http://purl.org/ontology/bibo/ book: http://purl.org/NET/book/vocab# ov: http://open.vocab.org/terms/ sioc: http://rdfs.org/sioc/ns# doap: http://usefulinc.com/ns/doap# dbr: http://dbpedia.org/resource/ dbp: http://dbpedia.org/property/ sio: http://semanticscience.org/resource/ opmw: http://www.opmw.org/ontology/ deo: http://purl.org/spar/deo/ doco: http://purl.org/spar/doco/ cito: http://purl.org/spar/cito/ fabio: http://purl.org/spar/fabio/ oa: http://www.w3.org/ns/oa# as: https://www.w3.org/ns/activitystreams# ldp: http://www.w3.org/ns/ldp# solid: http://www.w3.org/ns/solid/terms# acl: http://www.w3.org/ns/auth/acl# dio: https://w3id.org/dio#" typeof="schema:CreativeWork sioc:Post prov:Entity">
+</html>
