@@ -20,8 +20,8 @@ In case of a single SPARQL endpoint, a single query will suffice.
 On the other hand, if all sources are data dumps they all have to be downloaded and parsed client-side.
 But what if some sources are SPARQL endpoints and some are data dumps?
 
-To this end we created a modular Linked Data client called Comunica.
-In our ISWC2018 paper we describe how this client can easily be extended
+To this end we created a modular Linked Data client called [Comunica](cite:cites comunica).
+In our ISWC 2018 article we describe how this client can easily be extended
 to support a variety of sources and algorithms.
 This allows everyone to quickly set up a federated SPARQL client
 without having to worry about the sources,
