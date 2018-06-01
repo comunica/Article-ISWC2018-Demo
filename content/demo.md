@@ -4,7 +4,7 @@
 In this demonstation, we offer the possility for executing SPARQL queries
 over a federation of heterogeneous interfaces.
 This demonstration can be used directly within the browser,
-and is available on the [Comunica website](http://comunica.linkeddatafragments.org/){:.mandatory.}.
+and is available on the [Comunica website](http://comunica.linkeddatafragments.org/){:.mandatory}.
 
 This demonstration is an adaption of the [Triple Pattern Fragments Web client](cite:cites tpfdemo),
 with the main difference that instead of using the Triple Pattern Fragments engine for querying,
