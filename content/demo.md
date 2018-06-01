@@ -15,7 +15,7 @@ and is available under the open MIT license so that it can be reused for differe
 We provide a collection of example queries with a predefined set of sources,
 where some queries federate over different heterogeneous sources.
 [](#screenshot) shows an example of an example query that federates
-over a Triple Pattern Fragments interface and a SPARQL endpoint.
+over a Triple Pattern Fragments interface and a Linked Data document.
 Additionally, users can also write custom queries,
 and add more datasources by their URL.
 
