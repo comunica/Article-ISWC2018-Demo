@@ -1,18 +1,16 @@
 ## Introduction
 {:#introduction}
 
-Add sources
-{:.todo}
-
 There are a multitude of ways we can access Linked Data these days.
-Some of the more commonly used ones are SPARQL endpoints, 
-Triple Pattern Fragments and its variations, subject pages and data dumps.
-These all have their own methods on how they can be accessed and help solve SPARQL queries.
-While a SPARQL endpoint can solve queries on its own,
-data dumps will require client-side processing to produce more granular results.
-This is measured in client cost on the Linked Data Fragments axis.
+Some of the more commonly used ones are [SPARQL endpoints](cite:cites spec:sparqlprot),
+[Triple Pattern Fragments](cite:cites ldf) and its [variations](cite:cites brtpf,vtpf),
+[Linked Data documents](cite:cites LinkedDataPrinciples) and data dumps.
+These all have their own methods on how they can be accessed and help solve [SPARQL queries](cite:cites spec:sparqllang).
+While a SPARQL endpoint can execute queries on its own and can require a significant amount of server effort,
+data dumps will require client-side processing to produce more granular results and is less intensive for servers.
+This trade-off is measured as client cost on the [Linked Data Fragments axis](cite:cites ldf).
 
-Having all these heterogeneous interfaces greatly complicates federated queries.
+Having all these heterogeneous interfaces greatly complicates [federated queries](cite:cites ldf).
 While resolving such a query,
 different actions have to be taken depending on the source that is being accessed.
 Different solutions might also be required depending on the combination of sources.
@@ -27,8 +25,8 @@ This allows everyone to quickly set up a federated SPARQL client
 without having to worry about the sources,
 and to easily extend it should more types be required.
 
-In this paper we describe how we will showcase the heterogeneous features of Comunica.
-We created a web client capable of solving federated SPARQL queries over heteregeneous interfaces.
+In this article we describe how we will showcase the heterogeneous features of Comunica.
+We created a Web client capable of executing federated SPARQL queries over heteregeneous interfaces.
 Additionally, this client will automatically identify the type of all sources.
 This way the end-user only has to provide the URLs and query;
 Comunica will take care of the rest.
