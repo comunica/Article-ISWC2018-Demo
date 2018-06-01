@@ -3,14 +3,14 @@
 
 There are a multitude of ways we can access Linked Data these days.
 Some of the more commonly used ones are [SPARQL endpoints](cite:cites spec:sparqlprot),
-[Triple Pattern Fragments](cite:cites ldf)(TPF) and its [variations](cite:cites brtpf,vtpf),
+[Triple Pattern Fragments (TPF)](cite:cites ldf) and its [variations](cite:cites brtpf,vtpf),
 [Linked Data documents](cite:cites LinkedDataPrinciples) and data dumps.
 These all have their own methods on how they can be accessed and help solve [SPARQL queries](cite:cites spec:sparqllang).
 While a SPARQL endpoint can execute queries on its own and can require a significant amount of server effort,
 data dumps will require client-side processing to produce more granular results and is less intensive for servers.
 This trade-off is measured as client cost on the [Linked Data Fragments axis](cite:cites ldf).
 
-Having all these heterogeneous interfaces greatly complicates [federated queries](cite:cites ldf).
+Having all these heterogeneous interfaces greatly complicates federated queries.
 While resolving such a query,
 different actions have to be taken depending on the source that is being accessed.
 Different solutions might also be required depending on the combination of sources.

@@ -10,11 +10,11 @@ This demonstration is an adaption of the [Triple Pattern Fragments Web client](c
 with the main difference that instead of using the Triple Pattern Fragments engine for querying,
 it uses the Comunica engine.
 The implementation of this Web client is available on [GitHub](https://github.com/comunica/jQuery-Widget.js){:.mandatory},
-and is available under the open MIT license so that it can be reused for different use cases.
+under the open MIT license so that it can be reused for different use cases.
 
 We provide a collection of example queries with a predefined set of sources,
 where some queries federate over different heterogeneous sources.
-[](#screenshot) shows an example of an example query that federates
+[](#screenshot) shows an example query that federates
 over a Triple Pattern Fragments interface and a Linked Data document.
 Additionally, users can also write custom queries,
 and add more datasources by their URL.

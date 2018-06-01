@@ -2,7 +2,7 @@
 {:#comunica}
 
 [Comunica](cite:cites comunica) is a modular meta engine
-that enables instantiation of specific engines with the functionality described by the modules
+that enables the instantiation of specific engines with their functionality described by modules
 through semantic configuration files.
 We released [80+ modules](https://github.com/comunica/comunica){:.mandatory}
 that can be combined to fully replicate all features of the original
@@ -22,7 +22,7 @@ to instantiate and link all modules together.
 The current collection of Comunica modules offers more functionality than the original TPF client.
 The [default configuration](https://github.com/comunica/comunica/blob/master/packages/actor-init-sparql/config/config-default.json)
 allows users to query different kinds of Linked Data besides TPF interfaces.
-We provide support for SPARQL endpoints, Linked Data documents and [HDT](cite:cites hdt) files.
+We also provide support for SPARQL endpoints, Linked Data documents and [HDT](cite:cites hdt) files.
 These can all be combined in a single federated query
 by making use of the federated TPF algorithm
-and using Comunica modules to allow triple pattern queries on those different source types.
+and utilizing Comunica modules to allow triple pattern queries on those different source types.
