@@ -2,13 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Querying heterogeneous interfaces simultaneously using Comunica</title>
+  <title>Demonstration of Comunica, a Web framework for querying heterogeneous Linked Data interfaces</title>
   <link rel="stylesheet" media="screen" href="styles/screen.css" />
   <link rel="stylesheet" media="print"  href="styles/print.css" />
 </head>
 <body prefix="cc: https://creativecommons.org/ns# rdfs: http://www.w3.org/2000/01/rdf-schema#">
   <header>
-  <h1 id="querying-heterogeneous-interfaces-simultaneously-using-comunica">Querying heterogeneous interfaces simultaneously using Comunica</h1>
+  <h1 id="demonstration-of-comunica-a-web-framework-for-querying-heterogeneous-linked-data-interfaces">Demonstration of Comunica, a Web framework for querying heterogeneous Linked Data interfaces</h1>
 
   <ul id="authors">
     <li><a href="#" typeof="http://xmlns.com/foaf/0.1/Person" resource="https://data.verborgh.org/people/joachim_van_herwegen">Joachim Van Herwegen</a></li>
@@ -29,14 +29,15 @@
     <p>Linked Data sources can appear in a variety of forms,
 going from SPARQL endpoints to Triple Pattern Fragments and data dumps.
 <!-- Need         -->
-This creates an added layer of complexity when querying or combining results from those sources.
+This heterogeneity among Linked Data sources creates an added layer of complexity
+when querying or combining results from those sources.
 <!-- Task         -->
-To ease this problem, we created a modular client, Comunica,
-that has modules for solving SPARQL queries and supports heterogeneous interfaces.
+To ease this problem, we created a modular engine, Comunica,
+that has modules for evaluating SPARQL queries and supports heterogeneous interfaces.
 Other modules for other query or source types can easily be added.
 <!-- Object       -->
-In this paper we showcase the web client that uses Comunica to solve federated SPARQL queries
-and can automatically detect the types of the sources covered.</p>
+In this paper we showcase a Web client that uses Comunica to evaluate federated SPARQL queries
+through automatic source type identification and interaction.</p>
 
   </section>
 
@@ -47,17 +48,16 @@ and can automatically detect the types of the sources covered.</p>
   <section id="introduction">
     <h2>Introduction</h2>
 
-    <p class="todo">Add sources</p>
-
     <p>There are a multitude of ways we can access Linked Data these days.
-Some of the more commonly used ones are SPARQL endpoints, 
-Triple Pattern Fragments and its variations, subject pages and data dumps.
-These all have their own methods on how they can be accessed and help solve SPARQL queries.
-While a SPARQL endpoint can solve queries on its own,
-data dumps will require client-side processing to produce more granular results.
-This is measured in client cost on the Linked Data Fragments axis.</p>
+Some of the more commonly used ones are <a property="schema:citation http://purl.org/spar/cito/cites" href="https://www.w3.org/TR/2013/REC-sparql11-protocol-20130321/">SPARQL endpoints</a> <span class="references">[<a href="#ref-1">1</a>]</span>,
+<span property="schema:citation http://purl.org/spar/cito/cites" resource="https://dx.doi.org/10.1016/j.websem.2016.03.003"><a href="http://linkeddatafragments.org/publications/jws2016.pdf">Triple Pattern Fragments</a></span> <span class="references">[<a href="#ref-2">2</a>]</span> and its <span property="schema:citation http://purl.org/spar/cito/cites" resource="https://dx.doi.org/10.1007/978-3-319-48472-3_48"><a href="https://arxiv.org/pdf/1608.08148.pdf">variations</a></span> <span class="references">[<a href="#ref-3">3</a>, <a href="#ref-4">4</a>]</span>,
+<a property="schema:citation http://purl.org/spar/cito/cites" href="https://www.w3.org/DesignIssues/LinkedData.html">Linked Data documents</a> <span class="references">[<a href="#ref-5">5</a>]</span> and data dumps.
+These all have their own methods on how they can be accessed and help solve <a property="schema:citation http://purl.org/spar/cito/cites" href="https://www.w3.org/TR/2013/REC-sparql11-query-20130321/">SPARQL queries</a> <span class="references">[<a href="#ref-6">6</a>]</span>.
+While a SPARQL endpoint can execute queries on its own and can require a significant amount of server effort,
+data dumps will require client-side processing to produce more granular results and is less intensive for servers.
+This trade-off is measured as client cost on the <span property="schema:citation http://purl.org/spar/cito/cites" resource="https://dx.doi.org/10.1016/j.websem.2016.03.003"><a href="http://linkeddatafragments.org/publications/jws2016.pdf">Linked Data Fragments axis</a></span> <span class="references">[<a href="#ref-2">2</a>]</span>.</p>
 
-    <p>Having all these heterogeneous interfaces greatly complicates federated queries.
+    <p>Having all these heterogeneous interfaces greatly complicates <span property="schema:citation http://purl.org/spar/cito/cites" resource="https://dx.doi.org/10.1016/j.websem.2016.03.003"><a href="http://linkeddatafragments.org/publications/jws2016.pdf">federated queries</a></span> <span class="references">[<a href="#ref-2">2</a>]</span>.
 While resolving such a query,
 different actions have to be taken depending on the source that is being accessed.
 Different solutions might also be required depending on the combination of sources.
@@ -65,35 +65,58 @@ In case of a single SPARQL endpoint, a single query will suffice.
 On the other hand, if all sources are data dumps they all have to be downloaded and parsed client-side.
 But what if some sources are SPARQL endpoints and some are data dumps?</p>
 
-    <p>To this end we created a modular Linked Data client called Comunica.
-In our ISWC2018 paper we describe how this client can easily be extended
+    <p>To this end we created a modular Linked Data client called <a property="schema:citation http://purl.org/spar/cito/cites" href="https://comunica.github.io/Article-ISWC2018-Resource/">Comunica</a> <span class="references">[<a href="#ref-7">7</a>]</span>.
+In our ISWC 2018 article we describe how this client can easily be extended
 to support a variety of sources and algorithms.
 This allows everyone to quickly set up a federated SPARQL client
 without having to worry about the sources,
 and to easily extend it should more types be required.</p>
 
-    <p>In this paper we describe how we will showcase the heterogeneous features of Comunica.
-We created a web client capable of solving federated SPARQL queries over heteregeneous interfaces.
+    <p>In this article we describe how we will showcase the heterogeneous features of Comunica.
+We created a Web client capable of executing federated SPARQL queries over heteregeneous interfaces.
 Additionally, this client will automatically identify the type of all sources.
 This way the end-user only has to provide the URLs and query;
 Comunica will take care of the rest.</p>
   </section>
 
-  <section>
+  <section id="comunica">
+    <h2>Comunica</h2>
+
+    <p class="todo">Brief overview of comunica</p>
 
   </section>
 
-  <section>
+  <section id="demo">
+    <h2>Demonstration overview</h2>
 
-  </section>
-
-  <section>
+    <p class="todo">Brief overview of the demo</p>
 
   </section>
 
 </main>
 
-<footer></footer>
+<footer><section id="references">
+<h2>References</h2>
+<dl class="references">
+  <dt id="ref-1">[1]</dt>
+  <dd resource="https://www.w3.org/TR/2013/REC-sparql11-protocol-20130321/" typeof="schema:CreativeWork">Feigenbaum, L., Todd Williams, G., Grant Clark, K., Torres, E.: SPARQL 1.1 Protocol. W3C, <a href="https://www.w3.org/TR/2013/REC-sparql11-protocol-20130321/">https:/​/​www.w3.org/TR/2013/REC-sparql11-protocol-20130321/</a> (2013).</dd>
+  <dt id="ref-2">[2]</dt>
+  <dd resource="https://dx.doi.org/10.1016/j.websem.2016.03.003" typeof="schema:Article">Verborgh, R., Vander Sande, M., Hartig, O., Van Herwegen, J., De Vocht, L., De Meester, B., Haesendonck, G., Colpaert, P.: Triple Pattern Fragments: a Low-cost Knowledge Graph Interface for the Web. Journal of Web Semantics. 37–38, (2016).</dd>
+  <dt id="ref-3">[3]</dt>
+  <dd resource="https://dx.doi.org/10.1007/978-3-319-48472-3_48" typeof="schema:Article">Hartig, O., Buil-Aranda, C.: Bindings-Restricted Triple Pattern Fragments. In: Proceedings of the 15th International Conference on Ontologies, DataBases, and Applications of Semantics. pp. 762–779 (2016).</dd>
+  <dt id="ref-4">[4]</dt>
+  <dd resource="http://rubensworks.net/raw/publications/2017/vtpf.pdf" typeof="schema:Article">Taelman, R., Vander Sande, M., Verborgh, R., Mannens, E.: Versioned Triple Pattern Fragments: A Low-cost Linked Data Interface Feature for Web Archives. In: Proceedings of the 3rd Workshop on Managing the Evolution and Preservation of the Data Web (2017).</dd>
+  <dt id="ref-5">[5]</dt>
+  <dd resource="https://www.w3.org/DesignIssues/LinkedData.html" typeof="schema:CreativeWork">Berners-Lee, T.: Linked Data. <a href="https://www.w3.org/DesignIssues/LinkedData.html">https:/​/​www.w3.org/DesignIssues/LinkedData.html</a> (2009).</dd>
+  <dt id="ref-6">[6]</dt>
+  <dd resource="https://www.w3.org/TR/2013/REC-sparql11-query-20130321/" typeof="schema:CreativeWork">Harris, S., Seaborne, A., Prud’hommeaux, E.: SPARQL 1.1 Query Language. W3C, <a href="https://www.w3.org/TR/2013/REC-sparql11-query-20130321/">https:/​/​www.w3.org/TR/2013/REC-sparql11-query-20130321/</a> (2013).</dd>
+  <dt id="ref-7">[7]</dt>
+  <dd resource="https://comunica.github.io/Article-ISWC2018-Resource/" typeof="schema:Article">Taelman, R., Van Herwegen, J., Vander Sande, M., Verborgh, R.: Comunica: a Modular SPARQL Query Engine for the Web. In: Proceedings of the 17th International Semantic Web Conference (2018).</dd>
+</dl>
+</section>
+</footer>
+
+
 
 </body about="" prefix="rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns# rdfs: http://www.w3.org/2000/01/rdf-schema# owl: http://www.w3.org/2002/07/owl# xsd: http://www.w3.org/2001/XMLSchema# dcterms: http://purl.org/dc/terms/ dctypes: http://purl.org/dc/dcmitype/ foaf: http://xmlns.com/foaf/0.1/ v: http://www.w3.org/2006/vcard/ns# pimspace: http://www.w3.org/ns/pim/space# cc: https://creativecommons.org/ns# skos: http://www.w3.org/2004/02/skos/core# prov: http://www.w3.org/ns/prov# qb: http://purl.org/linked-data/cube# schema: http://schema.org/ void: http://rdfs.org/ns/void# rsa: http://www.w3.org/ns/auth/rsa# cert: http://www.w3.org/ns/auth/cert# cal: http://www.w3.org/2002/12/cal/ical# wgs: http://www.w3.org/2003/01/geo/wgs84_pos# org: http://www.w3.org/ns/org# biblio: http://purl.org/net/biblio# bibo: http://purl.org/ontology/bibo/ book: http://purl.org/NET/book/vocab# ov: http://open.vocab.org/terms/ sioc: http://rdfs.org/sioc/ns# doap: http://usefulinc.com/ns/doap# dbr: http://dbpedia.org/resource/ dbp: http://dbpedia.org/property/ sio: http://semanticscience.org/resource/ opmw: http://www.opmw.org/ontology/ deo: http://purl.org/spar/deo/ doco: http://purl.org/spar/doco/ cito: http://purl.org/spar/cito/ fabio: http://purl.org/spar/fabio/ oa: http://www.w3.org/ns/oa# as: https://www.w3.org/ns/activitystreams# ldp: http://www.w3.org/ns/ldp# solid: http://www.w3.org/ns/solid/terms# acl: http://www.w3.org/ns/auth/acl# dio: https://w3id.org/dio#" typeof="schema:CreativeWork sioc:Post prov:Entity">
 </html>
