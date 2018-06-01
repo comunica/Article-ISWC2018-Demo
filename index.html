@@ -50,7 +50,7 @@ through automatic source type identification and interaction.</p>
 
     <p>There are a multitude of ways we can access Linked Data these days.
 Some of the more commonly used ones are <a property="schema:citation http://purl.org/spar/cito/cites" href="https://www.w3.org/TR/2013/REC-sparql11-protocol-20130321/">SPARQL endpoints</a> <span class="references">[<a href="#ref-1">1</a>]</span>,
-<span property="schema:citation http://purl.org/spar/cito/cites" resource="https://dx.doi.org/10.1016/j.websem.2016.03.003"><a href="http://linkeddatafragments.org/publications/jws2016.pdf">Triple Pattern Fragments</a></span> <span class="references">[<a href="#ref-2">2</a>]</span> and its <span property="schema:citation http://purl.org/spar/cito/cites" resource="https://dx.doi.org/10.1007/978-3-319-48472-3_48"><a href="https://arxiv.org/pdf/1608.08148.pdf">variations</a></span> <span class="references">[<a href="#ref-3">3</a>, <a href="#ref-4">4</a>]</span>,
+<span property="schema:citation http://purl.org/spar/cito/cites" resource="https://dx.doi.org/10.1016/j.websem.2016.03.003"><a href="http://linkeddatafragments.org/publications/jws2016.pdf">Triple Pattern Fragments</a></span> <span class="references">[<a href="#ref-2">2</a>]</span>(TPF) and its <span property="schema:citation http://purl.org/spar/cito/cites" resource="https://dx.doi.org/10.1007/978-3-319-48472-3_48"><a href="https://arxiv.org/pdf/1608.08148.pdf">variations</a></span> <span class="references">[<a href="#ref-3">3</a>, <a href="#ref-4">4</a>]</span>,
 <a property="schema:citation http://purl.org/spar/cito/cites" href="https://www.w3.org/DesignIssues/LinkedData.html">Linked Data documents</a> <span class="references">[<a href="#ref-5">5</a>]</span> and data dumps.
 These all have their own methods on how they can be accessed and help solve <a property="schema:citation http://purl.org/spar/cito/cites" href="https://www.w3.org/TR/2013/REC-sparql11-query-20130321/">SPARQL queries</a> <span class="references">[<a href="#ref-6">6</a>]</span>.
 While a SPARQL endpoint can execute queries on its own and can require a significant amount of server effort,
@@ -83,8 +83,32 @@ Comunica will take care of the rest.</p>
   <section id="comunica">
     <h2>Comunica</h2>
 
-    <p class="todo">Brief overview of comunica</p>
+    <p><a property="schema:citation http://purl.org/spar/cito/cites" href="https://comunica.github.io/Article-ISWC2018-Resource/">Comunica</a> <span class="references">[<a href="#ref-7">7</a>]</span> is a modular meta engine: 
+it uses modular dependency injection to set up an engine
+with the functionality described by the modules.
+Together with our initial publication we released
+<a href="https://github.com/comunica/comunica" class="mandatory" data-link-text="https:/​/​github.com/​comunica/​comunica">80+ modules</a>
+that can be combined to fully replicate all features of the original
+<a href="https://github.com/LinkedDataFragments/Client.js" class="mandatory" data-link-text="https:/​/​github.com/​LinkedDataFragments/​Client.js">TPF client</a>.
+But Comunica is not limited to simply solving SPARQL queries:
+new modules can always be added to solve new problems and add additional features.
+Similarly, features can easily be switched out for others
+to quickly compare different implementations and ideas.</p>
 
+    <p>Every module consists of two parts: the source code and the the components description.
+The second part is a collection of Linked Data documents
+describing the functionality of the corresponding module.
+These then get used by <a property="schema:citation http://purl.org/spar/cito/cites" href="http://componentsjs.readthedocs.io/en/latest/">Components.js</a> <span class="references">[<a href="#ref-9">9</a>]</span>,
+a semantic dependency injection framework,
+to link all modules together correctly.</p>
+
+    <p>The current collection of Comunica modules does more than simply clone the original TPF client though.
+The <a href="https://github.com/comunica/comunica/blob/master/packages/actor-init-sparql/config/config-default.json">default configuration</a>
+allows users to query all kinds of Linked Data besides TPF interfaces.
+There is also support for SPARQL endpoints, Linked Data documents and HDT files.
+These can also all be combined in a single federated query
+by making use of the federated TPF algorithm
+and using Comunica modules to allow triple pattern queries on those different source types.</p>
   </section>
 
   <section id="demo">
@@ -145,6 +169,8 @@ Finally, RDF files are tested with the lowest priority by checking their content
   <dd resource="https://comunica.github.io/Article-ISWC2018-Resource/" typeof="schema:Article">Taelman, R., Van Herwegen, J., Vander Sande, M., Verborgh, R.: Comunica: a Modular SPARQL Query Engine for the Web. In: Proceedings of the 17th International Semantic Web Conference (2018).</dd>
   <dt id="ref-8">[8]</dt>
   <dd resource="#tpfdemo" typeof="schema:Article">Verborgh, R., Hartig, O., De Meester, B., Haesendonck, G., De Vocht, L., Vander Sande, M., Cyganiak, R., Colpaert, P., Mannens, E., Van de Walle, R.: Low-Cost Queryable Linked Data through Triple Pattern Fragments. In: International Semantic Web Conference (Posters &amp; Demos). pp. 13–16 (2014).</dd>
+  <dt id="ref-9">[9]</dt>
+  <dd resource="http://componentsjs.readthedocs.io/en/latest/" typeof="schema:CreativeWork">Taelman, R.: Components.js. <a href="http://componentsjs.readthedocs.io/en/latest/">http:/​/​componentsjs.readthedocs.io/en/latest/</a></dd>
 </dl>
 </section>
 </footer>
