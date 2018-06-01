@@ -3,7 +3,7 @@
 
 There are a multitude of ways we can access Linked Data these days.
 Some of the more commonly used ones are [SPARQL endpoints](cite:cites spec:sparqlprot),
-[Triple Pattern Fragments](cite:cites ldf) and its [variations](cite:cites brtpf,vtpf),
+[Triple Pattern Fragments](cite:cites ldf)(TPF) and its [variations](cite:cites brtpf,vtpf),
 [Linked Data documents](cite:cites LinkedDataPrinciples) and data dumps.
 These all have their own methods on how they can be accessed and help solve [SPARQL queries](cite:cites spec:sparqllang).
 While a SPARQL endpoint can execute queries on its own and can require a significant amount of server effort,
