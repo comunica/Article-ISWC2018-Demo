@@ -50,14 +50,14 @@ through automatic source type identification and interaction.</p>
 
     <p>There are a multitude of ways we can access Linked Data these days.
 Some of the more commonly used ones are <a property="schema:citation http://purl.org/spar/cito/cites" href="https://www.w3.org/TR/2013/REC-sparql11-protocol-20130321/">SPARQL endpoints</a> <span class="references">[<a href="#ref-1">1</a>]</span>,
-<span property="schema:citation http://purl.org/spar/cito/cites" resource="https://dx.doi.org/10.1016/j.websem.2016.03.003"><a href="http://linkeddatafragments.org/publications/jws2016.pdf">Triple Pattern Fragments</a></span> <span class="references">[<a href="#ref-2">2</a>]</span>(TPF) and its <span property="schema:citation http://purl.org/spar/cito/cites" resource="https://dx.doi.org/10.1007/978-3-319-48472-3_48"><a href="https://arxiv.org/pdf/1608.08148.pdf">variations</a></span> <span class="references">[<a href="#ref-3">3</a>, <a href="#ref-4">4</a>]</span>,
+<span property="schema:citation http://purl.org/spar/cito/cites" resource="https://dx.doi.org/10.1016/j.websem.2016.03.003"><a href="http://linkeddatafragments.org/publications/jws2016.pdf">Triple Pattern Fragments (TPF)</a></span> <span class="references">[<a href="#ref-2">2</a>]</span> and its <span property="schema:citation http://purl.org/spar/cito/cites" resource="https://dx.doi.org/10.1007/978-3-319-48472-3_48"><a href="https://arxiv.org/pdf/1608.08148.pdf">variations</a></span> <span class="references">[<a href="#ref-3">3</a>, <a href="#ref-4">4</a>]</span>,
 <a property="schema:citation http://purl.org/spar/cito/cites" href="https://www.w3.org/DesignIssues/LinkedData.html">Linked Data documents</a> <span class="references">[<a href="#ref-5">5</a>]</span> and data dumps.
 These all have their own methods on how they can be accessed and help solve <a property="schema:citation http://purl.org/spar/cito/cites" href="https://www.w3.org/TR/2013/REC-sparql11-query-20130321/">SPARQL queries</a> <span class="references">[<a href="#ref-6">6</a>]</span>.
 While a SPARQL endpoint can execute queries on its own and can require a significant amount of server effort,
 data dumps will require client-side processing to produce more granular results and is less intensive for servers.
 This trade-off is measured as client cost on the <span property="schema:citation http://purl.org/spar/cito/cites" resource="https://dx.doi.org/10.1016/j.websem.2016.03.003"><a href="http://linkeddatafragments.org/publications/jws2016.pdf">Linked Data Fragments axis</a></span> <span class="references">[<a href="#ref-2">2</a>]</span>.</p>
 
-    <p>Having all these heterogeneous interfaces greatly complicates <span property="schema:citation http://purl.org/spar/cito/cites" resource="https://dx.doi.org/10.1016/j.websem.2016.03.003"><a href="http://linkeddatafragments.org/publications/jws2016.pdf">federated queries</a></span> <span class="references">[<a href="#ref-2">2</a>]</span>.
+    <p>Having all these heterogeneous interfaces greatly complicates federated queries.
 While resolving such a query,
 different actions have to be taken depending on the source that is being accessed.
 Different solutions might also be required depending on the combination of sources.
@@ -84,7 +84,7 @@ Comunica will take care of the rest.</p>
     <h2>Comunica</h2>
 
     <p><a property="schema:citation http://purl.org/spar/cito/cites" href="https://comunica.github.io/Article-ISWC2018-Resource/">Comunica</a> <span class="references">[<a href="#ref-7">7</a>]</span> is a modular meta engine
-that enables instantiation of specific engines with the functionality described by the modules
+that enables the instantiation of specific engines with their functionality described by modules
 through semantic configuration files.
 We released <a href="https://github.com/comunica/comunica" class="mandatory" data-link-text="https:/​/​github.com/​comunica/​comunica">80+ modules</a>
 that can be combined to fully replicate all features of the original
@@ -104,10 +104,10 @@ to instantiate and link all modules together.</p>
     <p>The current collection of Comunica modules offers more functionality than the original TPF client.
 The <a href="https://github.com/comunica/comunica/blob/master/packages/actor-init-sparql/config/config-default.json">default configuration</a>
 allows users to query different kinds of Linked Data besides TPF interfaces.
-We provide support for SPARQL endpoints, Linked Data documents and <a property="schema:citation http://purl.org/spar/cito/cites" href="http://www.websemanticsjournal.org/index.php/ps/article/view/328">HDT</a> <span class="references">[<a href="#ref-10">10</a>]</span> files.
+We also provide support for SPARQL endpoints, Linked Data documents and <a property="schema:citation http://purl.org/spar/cito/cites" href="http://www.websemanticsjournal.org/index.php/ps/article/view/328">HDT</a> <span class="references">[<a href="#ref-10">10</a>]</span> files.
 These can all be combined in a single federated query
 by making use of the federated TPF algorithm
-and using Comunica modules to allow triple pattern queries on those different source types.</p>
+and utilizing Comunica modules to allow triple pattern queries on those different source types.</p>
 
   </section>
 
@@ -123,11 +123,11 @@ and is available on the <a href="http://comunica.linkeddatafragments.org/" class
 with the main difference that instead of using the Triple Pattern Fragments engine for querying,
 it uses the Comunica engine.
 The implementation of this Web client is available on <a href="https://github.com/comunica/jQuery-Widget.js" class="mandatory" data-link-text="https:/​/​github.com/​comunica/​jQuery-​Widget.js">GitHub</a>,
-and is available under the open MIT license so that it can be reused for different use cases.</p>
+under the open MIT license so that it can be reused for different use cases.</p>
 
     <p>We provide a collection of example queries with a predefined set of sources,
 where some queries federate over different heterogeneous sources.
-<a href="#screenshot">Fig. 1</a> shows an example of an example query that federates
+<a href="#screenshot">Fig. 1</a> shows an example query that federates
 over a Triple Pattern Fragments interface and a Linked Data document.
 Additionally, users can also write custom queries,
 and add more datasources by their URL.</p>
