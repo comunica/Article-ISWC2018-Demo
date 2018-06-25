@@ -1,0 +1,91 @@
+----------------------- REVIEW 1 --------------------- 
+PAPER: 39 
+TITLE: Demonstration of Comunica, a Web framework for querying heterogeneous Linked Data interfaces 
+AUTHORS: Joachim Van Herwegen, Ruben Taelman, Miel Vander Sande and Ruben Verborgh 
+
+Overall evaluation: 0 (borderline) 
+Reviewer's confidence: 2 ((medium)) 
+How relevant is this demo/poster to ISWC?: 2 (Very relevant) 
+Quality of writing: 2 (good) 
+Is the demo code available for download?: yes 
+Is this a novel idea/application/SW domain?: no 
+
+----------- Strengths ----------- 
+UI is interesting and is needed. 
+Paper is easy to follow. 
+
+----------- Weaknesses ----------- 
+Not many new ideas/details compared with the authors' ISWC paper. 
+
+----------- Detailed Review ----------- 
+This paper demos Comunica, a Web framework for querying heterogeneous Linked Data interfaces. The underlying techniques have been described in an ISWC paper. In this demo, the authors show a user interface, where a SPARQL query is inputted, a set of heterogeneous sources are provided, and query results are returned. 
+
+There aren't many new techniques introduced in this demo, compared with the ISWC paper. However, the UI seems easy to use, and it may be interesting to a large audience. 
+
+It would be good if some more implementation details could be provided in the camera-ready version. There are still half a page to use. 
+
+
+----------------------- REVIEW 2 --------------------- 
+PAPER: 39 
+TITLE: Demonstration of Comunica, a Web framework for querying heterogeneous Linked Data interfaces 
+AUTHORS: Joachim Van Herwegen, Ruben Taelman, Miel Vander Sande and Ruben Verborgh 
+
+Overall evaluation: 0 (borderline) 
+Reviewer's confidence: 3 ((high)) 
+How relevant is this demo/poster to ISWC?: 2 (Very relevant) 
+Quality of writing: 2 (good) 
+Is the demo code available for download?: yes 
+Is this a novel idea/application/SW domain?: yes 
+
+----------- Strengths ----------- 
+The demo showcases Comunica, a web platform to query heterogeneous linked datas interfaces. 
+It is definitely useful for developers having a common way to query heterogeneous linked data interfaces. 
+Furthermore, this common client-side API is based on SPARQL, hence permitting expressive queries, and developed in Javascript, hence potentially usable in Web clients and in server-side nodejs apps. 
+The quality of writing of the paper and documentation on the website is high. 
+
+----------- Weaknesses ----------- 
+The experience with the online demo was disappointing for the examples I tried. 
+My opinion is that there are serious bugs/limitations in the current implementation (described below in the "Detailed Review") leading to both consistency and efficiency problems. 
+If the authors either prove that I am wrong or solve the problems (and maybe describe better the current limitations) I am totally up to changing the evaluation from borderline to accept. 
+
+----------- Detailed Review ----------- 
+I run the example query "Directors of movies starring Brad Pitt" 
+1. directly against the DBpedia SPARQL endpoint 
+2. through Comunica, on DBpedia SPARQL endpoint alone and 
+3. through Comunica, on DBpedia SPARQL endpoint plus Ruben Verborgh's Profile (an RDF dump) 
+
+# Consistency problem 
+While, as expected, case 1 and 2 return the same results (currently 41 rows), case 3 returns no results, while (considering the query is conjuctive) I would have expected a super-set of the results of 1 and 2. 
+Furthermore, the time counter keeps running forever even if there are no HTTP requests pending. 
+
+# Basic efficiency problem 
+Obviously I would not expect this prototype to be highly optimized. 
+But neither I expected that case 2 (using Comunica) would be around two orders of magnitude slower than case 1 (running the same query directly on the endpoint). 
+And that happens because the client uses a total number of 647 queries to get the results (while 1 was needed). 
+I understand that possibly for simplicity the developers decided to execute queries on SPARQL endpoints as they do on triple pattern fragments interfaces. Nevertheless, this is a serious drawback for the purpose of consuming data from SPARQL endpoints. 
+
+
+----------------------- REVIEW 3 --------------------- 
+PAPER: 39 
+TITLE: Demonstration of Comunica, a Web framework for querying heterogeneous Linked Data interfaces 
+AUTHORS: Joachim Van Herwegen, Ruben Taelman, Miel Vander Sande and Ruben Verborgh 
+
+Overall evaluation: 0 (borderline) 
+Reviewer's confidence: 3 ((high)) 
+How relevant is this demo/poster to ISWC?: 0 (Somewhat relevant) 
+Quality of writing: 0 (ok) 
+Is the demo code available for download?: yes 
+Is this a novel idea/application/SW domain?: no 
+
+----------- Strengths ----------- 
+The paper addresses a very relevant problem, to facilitate users query semantic data sources 
+
+----------- Weaknesses ----------- 
+From a demo perspective, it is really hard to visualize how this tools is going to help users. There is just one screenshot and it does not seem very user friendly. 
+
+----------- Detailed Review ----------- 
+The intention of this paper is to describe the intended demo, but it is hard to imagine it, especially from an end-user perspective. Even with the help of the only figure. 
+
+For instance, how it is supposed that a user, even one with semantic technologies experience, will build such a SPARQL query without detailed knowledge about the kind of URIs, schemas, ontologies,... in the underlying data sources. This problem is aggravated when multiple data sources are queried and some or most of them are new to the user. 
+
+The proposed approach makes a lot of sense from a theoretical standpoint, but when dealing with demos and thus showcasing the functionality of the underlying implementations, more attention should be paid to the user experience. Otherwise, it will be hard to motivate users to adopt these new proposals, even when they make a lot of sense from the functional point of view. 
