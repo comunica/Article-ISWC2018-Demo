@@ -33,7 +33,7 @@ This heterogeneity among Linked Data sources creates an added layer of complexit
 when querying or combining results from those sources.
 <!-- Task         -->
 To ease this problem, we created a modular engine, Comunica,
-that has modules for evaluating SPARQL queries and supports heterogeneous interfaces.
+which has modules for evaluating SPARQL queries and supports heterogeneous interfaces.
 Other modules for other query or source types can easily be added.
 <!-- Object       -->
 In this paper we showcase a Web client that uses Comunica to evaluate federated SPARQL queries
@@ -73,7 +73,7 @@ without having to worry about the sources,
 and to easily extend it should more types be required.</p>
 
     <p>In this article we describe how we will showcase the heterogeneous features of Comunica.
-We created a Web client capable of executing federated SPARQL queries over heteregeneous interfaces,
+We created a Web client capable of executing federated SPARQL queries over heterogeneous interfaces,
 as an extension of the Triple Pattern Fragments Web client <span class="references">[<a href="#ref-8">8</a>]</span>.
 Additionally, this client will automatically identify the type of all sources.
 This way the end-user only has to provide the URLs and query;
@@ -114,7 +114,7 @@ and utilizing Comunica modules to allow triple pattern queries on those differen
   <section id="demo">
     <h2>Demonstration overview</h2>
 
-    <p>In this demonstation, we offer the possility for executing SPARQL queries
+    <p>In this demonstration, we offer the possibility for executing SPARQL queries
 over a federation of heterogeneous interfaces.
 This demonstration can be used directly within the browser,
 and is available on the <a href="http://comunica.linkeddatafragments.org/" class="mandatory" data-link-text="http:/​/​comunica.linkeddatafragments.org/​">Comunica website</a>.</p>
@@ -143,7 +143,7 @@ DBpedia Triple Pattern Fragments interface and a FOAF profile.</p>
     <p>At the time of writing, SPARQL endpoints, Triple Pattern Fragments interfaces and raw RDF files can be queried.
 Internally, Comunica will identify the source type through a set of heuristics.
 SPARQL endpoints are tested using a simple <code>ASK</code> query through the <a property="schema:citation http://purl.org/spar/cito/cites" href="https://www.w3.org/TR/2013/REC-sparql11-protocol-20130321/">SPARQL protocol</a> <span class="references">[<a href="#ref-1">1</a>]</span>.
-Triple Pattern Fragments interfaces are tested by checking if the required set of hypermedia controls are available.
+Triple Pattern Fragments interfaces are tested by checking if the required set of hypermedia controls is available.
 Finally, RDF files are tested with the lowest priority by checking their content type.</p>
 
   </section>
