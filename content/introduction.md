@@ -26,7 +26,7 @@ without having to worry about the sources,
 and to easily extend it should more types be required.
 
 In this article we describe how we will showcase the heterogeneous features of Comunica.
-We created a Web client capable of executing federated SPARQL queries over heteregeneous interfaces,
+We created a Web client capable of executing federated SPARQL queries over heterogeneous interfaces,
 as an extension of the [Triple Pattern Fragments Web client](cite:cites tpfdemo).
 Additionally, this client will automatically identify the type of all sources.
 This way the end-user only has to provide the URLs and query;

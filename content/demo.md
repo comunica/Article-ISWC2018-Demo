@@ -1,7 +1,7 @@
 ## Demonstration overview
 {:#demo}
 
-In this demonstation, we offer the possility for executing SPARQL queries
+In this demonstration, we offer the possibility for executing SPARQL queries
 over a federation of heterogeneous interfaces.
 This demonstration can be used directly within the browser,
 and is available on the [Comunica website](http://comunica.linkeddatafragments.org/){:.mandatory}.
@@ -30,5 +30,5 @@ DBpedia Triple Pattern Fragments interface and a FOAF profile.
 At the time of writing, SPARQL endpoints, Triple Pattern Fragments interfaces and raw RDF files can be queried.
 Internally, Comunica will identify the source type through a set of heuristics.
 SPARQL endpoints are tested using a simple `ASK` query through the [SPARQL protocol](cite:cites spec:sparqlprot).
-Triple Pattern Fragments interfaces are tested by checking if the required set of hypermedia controls are available.
+Triple Pattern Fragments interfaces are tested by checking if the required set of hypermedia controls is available.
 Finally, RDF files are tested with the lowest priority by checking their content type.
